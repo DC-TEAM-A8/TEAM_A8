@@ -5,8 +5,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "devDependencies": {
+    "@lms-renew/web": "workspace:*"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "workspaces": [
+    "web"
+  ],
   "packageManager": "pnpm@9.1.2"
 }
