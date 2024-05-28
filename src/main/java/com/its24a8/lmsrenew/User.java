@@ -16,18 +16,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 public class User {
-    public User(String name, Type type, long class_id) {
+    public User(String name, Type type, long classId) {
         super();
         this.name = name;
         this.type = type;
-        this.class_id = class_id;
+        this.classId = classId;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long class_id;
+    private long classId;
 
     @NotBlank(message = "Name cannot be empty")
     private String name;
