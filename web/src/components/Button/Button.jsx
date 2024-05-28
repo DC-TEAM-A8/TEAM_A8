@@ -4,6 +4,7 @@
  */
 /**
  * @typedef { object } IButtonProps
+ * @property { TButtonVariant } [variant]
  * @property { string } [className]
  * @property { import("react").ReactNode } [children]
  * @property { string } [href]
