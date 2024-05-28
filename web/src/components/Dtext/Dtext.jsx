@@ -16,15 +16,15 @@ import { Button } from '../Button';
  */
 export function Dtext(props) {
   return (
-    <div className={`bg-red ${props.className ?? ""}`}>
-      <h2>教科書一覧</h2>
-      <div>
+    <div className={`${props.className ?? ""}`}>
+      <h2 className="text-xl">教科書一覧</h2>
+      <div className="grid grid-cols-2 gap-4 w-72">
         {props.subjects.map((subject, index) => (
             <Button 
               key={index}
               href={subject.link}
               variant="primary"
-              className="w-72"
+              className="text-center"
             >
               {subject.name}
             </Button>
