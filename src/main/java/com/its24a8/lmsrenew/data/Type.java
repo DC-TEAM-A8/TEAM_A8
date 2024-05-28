@@ -1,4 +1,4 @@
-package com.its24a8.lmsrenew;
+package com.its24a8.lmsrenew.data;
 
 public enum Type {
     INSTRUCTOR,
