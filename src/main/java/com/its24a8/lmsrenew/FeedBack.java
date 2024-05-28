@@ -2,6 +2,7 @@ package com.its24a8.lmsrenew;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -24,9 +25,15 @@ public class FeedBack {
 	}
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long user_id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long lesson_id;
 	
 	@NotBlank(message = "content cannot be empty")
