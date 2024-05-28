@@ -1,0 +1,45 @@
+.subject-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .subject-buttons button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .subject-details {
+    margin-top: 20px;
+  }
+  
+  .subject-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .subject-details th, .subject-details td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .subject-details th {
+    background-color: #f2f2f2;
+    text-align: left;
+  }
+  
+  .apply-button {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
