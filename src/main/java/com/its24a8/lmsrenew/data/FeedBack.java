@@ -1,4 +1,4 @@
-package com.its24a8.lmsrenew;
+package com.its24a8.lmsrenew.data;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
