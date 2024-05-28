@@ -18,7 +18,7 @@ public class User {
 	public User(String name, Type type) {
 		super();
 		this.name = name;
-		Type = type;
+		this.type = type;
 	}
 	
 	@Id
@@ -30,6 +30,6 @@ public class User {
     private String name;
 	
 	@Enumerated(EnumType.STRING)
-	private Type Type;
+	private Type type;
 }
 
