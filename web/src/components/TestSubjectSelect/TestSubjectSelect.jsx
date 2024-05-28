@@ -34,6 +34,7 @@ const SubjectDetails = ({ subject }) => {
     { id: 6, time: "Table Data", criteria: "Table Data", score: "Table Data" },
     { id: 7, time: "Table Data", criteria: "Table Data", score: "Table Data" },
     { id: 8, time: "Table Data", criteria: "Table Data", score: "Table Data" },
+    { id: 9, time: "30分", criteria: "test", score: "test" },
   ];
 
   return (
@@ -42,8 +43,8 @@ const SubjectDetails = ({ subject }) => {
       <table style={tableStyle}>
         <thead>
           <tr>
-            <th>科目名</th>
-            <th>受験</th>
+            <th></th>
+            <th></th>
             <th>制限時間</th>
             <th>合格基準</th>
             <th>あなたの最高スコア</th>
