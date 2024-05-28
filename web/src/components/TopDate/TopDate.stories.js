@@ -1,9 +1,9 @@
 // import { fn } from '@storybook/test';
-import { Topdata } from './Topdata';
+import { TopDate } from './TopDate';
 
 export default {
-  title: 'Components/Topdata',
-  component: Topdata,
+  title: 'Components/TopDate',
+  component: TopDate,
   parameters: {
     layout: 'centered',
   },
@@ -17,7 +17,6 @@ export default {
 
 export const Primary = {
   args: {
-    // コンポーネントに引数がある場合、以下に追加
-    // backgroundColor: 'red',
+    today: ''
   },
 };
