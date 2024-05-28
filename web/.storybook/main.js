@@ -7,6 +7,7 @@ const config = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    '@storybook/preset-create-react-app',
   ],
   framework: {
     name: "@storybook/nextjs",

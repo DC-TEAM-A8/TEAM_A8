@@ -1,14 +1,10 @@
 // import { fn } from '@storybook/test';
-import { {{pascalCase name}} } from './{{pascalCase name}}';
+import React from 'react';
+import { Header } from './Header';
 
-/**
- * @typedef {import("@storybook/react").Meta<typeof {{pascalCase name}}>} Meta
- * @typedef {import("@storybook/react").StoryObj<Meta>} Story
- * @type {Meta}
- */
 export default {
-  title: 'Components/{{pascalCase name}}',
-  component: {{pascalCase name}},
+  title: 'Components/Header',
+  component: Header,
   parameters: {
     layout: 'centered',
   },
@@ -20,10 +16,14 @@ export default {
   },
 };
 
-/** @type {Story} */
 export const Primary = {
   args: {
     // コンポーネントに引数がある場合、以下に追加
     // backgroundColor: 'red',
+    links: {
+      Report: "211",
+      result: "333",
+      thoughts: "111"
+    }
   },
 };
