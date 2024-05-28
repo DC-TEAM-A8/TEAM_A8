@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class FeedBack {
 
     public FeedBack(String content, int rating_1, int rating_2, int rating_3, String comment, long user_id, long lesson_id) {
-    	super();
+    	  super();
         this.content = content;
         this.rating_1 = rating_1;
         this.rating_2 = rating_2;
@@ -53,3 +53,4 @@ public class FeedBack {
     @NotBlank(message = "Comment cannot be empty")
     private String comment;
 }
+
