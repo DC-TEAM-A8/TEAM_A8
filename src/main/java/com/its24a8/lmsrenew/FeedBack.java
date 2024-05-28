@@ -1,10 +1,18 @@
 package com.its24a8.lmsrenew;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name="feedback")
 public class FeedBack {
 	public FeedBack(String content, int rating_1,  int rating_2, int rating_3, String comment) {
 		super();
@@ -21,7 +29,7 @@ public class FeedBack {
 	private long user_id;
 	private long lesson_id;
 	
-	@NotBlank(message = "Name cannot be empty")
+	@NotBlank(message = "content cannot be empty")
     private String content;
 
 	@NotBlank(message = "Rating_1 cannot be empty")
