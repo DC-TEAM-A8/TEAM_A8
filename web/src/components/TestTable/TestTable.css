@@ -1,0 +1,16 @@
+th {
+    border: 1px gray solid;
+    padding: 8px;
+    width: 190px;
+}
+
+.TableSubject {
+    background-color: #CCCCCC;
+}
+
+.TestTableThead {
+    background-color: #CCCCCC;
+    width: 190px;
+    height: 80px;
+}
+
