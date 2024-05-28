@@ -17,7 +17,7 @@ export function DailyReportListRow(props) {
       justifyContent: 'space-between', // 画面の左端と右端に子要素を配置
       backgroundColor: 'white',
       width: '100%',
-      padding : "8px",
+      padding : "7px",
     }}>
       {/* タイトル */}
       <span 
