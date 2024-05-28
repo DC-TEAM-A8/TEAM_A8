@@ -5,6 +5,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { useMemo } from "react";
+import { CalendarDay } from "../CalendarDay/CalendarDay";
 
 /**
  * 前後2週間分の日付を取得する
@@ -24,9 +25,13 @@ function useCalDates(today) {
 }
 
 /**
+ * @typedef {[TAttendance, TAttendance]} TAttendanceStatus
+ */
+/**
  * @typedef {Object} ICalendarProps
- * @property {(changedDate: Date) => void} onChange
- * @property {Date} targetDate
+ * @property {(changedDate: Date) => void} [onChange] 選択された日付が変更されたときに呼ばれるコールバック
+ * @property {{date: Date, status: TAttendanceStatus}[]} status 出席状況
+ * @property {Date} targetDate 選択されている日付
  */
 
 /**
@@ -49,7 +54,7 @@ export function Calendar(props) {
           "金",
           "土",
         ].map((week, i) => (
-          <div key={i} className={`p-1 w-8 h-8 flex justify-center items-center select-none ${
+          <div key={i} className={`w-8 h-8 flex justify-center items-center select-none ${
             i === 0 ? "text-red-500" : i === 6 ? "text-blue-500" : ""
           }`}>
             {week}
@@ -59,18 +64,18 @@ export function Calendar(props) {
       {days.map((week, i) => (
         <div key={week[0].toISOString()} className="flex flex-row">
           {week.map((day, j) => (
-            <button key={day.toISOString()} className={`p-1 w-8 h-8 flex justify-center items-center ${
-              day.isSame(targetDate, "day")
-              ? "bg-blue-500 text-white"
-              : day.isSame(new Date(), "day")
-              ? "bg-orange-300"
-              : ""
-            }`} onClick={() => {
-              setTargetDate(day.toDate());
-              props.onChange(day.toDate());
-            }}>
-              {day.format("D")}
-            </button>
+            <CalendarDay
+              key={day.toISOString()}
+              date={day.toDate()}
+              status={props.status.find(s => day.isSame(s.date, "day"))?.status || [true, true]}
+              isToday={day.isSame(new Date(), "day")}
+              isSelected={day.isSame(targetDate, "day")}
+              onClick={date => {
+                setTargetDate(date);
+                props.onChange?.(date);
+              }}
+              className={`border`}
+            />
           ))}
         </div>
       ))}
