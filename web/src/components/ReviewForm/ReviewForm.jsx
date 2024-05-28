@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * @typedef {object} IReviewFormProps
  * @property {string} [className]
