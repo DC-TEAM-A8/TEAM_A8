@@ -14,26 +14,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
-	public User(String name, Type type) {
-		super();
-		this.name = name;
-		this.type = type;
-	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long class_id;
-	
-	@NotBlank(message = "Name cannot be empty")
-    private String name;
-	
-	@Enumerated(EnumType.STRING)
-	private Type type;
-}
+    public User(String name, Type type, long class_id) {
+        super();
+        this.name = name;
+        this.type = type;
+        this.class_id = class_id;
+    }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private long class_id;
+
+    @NotBlank(message = "Name cannot be empty")
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Type type;
+}
