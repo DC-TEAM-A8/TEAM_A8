@@ -1,6 +1,11 @@
 // import { fn } from '@storybook/test';
 import { {{pascalCase name}} } from './{{pascalCase name}}';
 
+/**
+ * @typedef {import("@storybook/react").Meta<typeof {{pascalCase name}}>} Meta
+ * @typedef {import("@storybook/react").StoryObj<Meta>} Story
+ * @type {Meta}
+ */
 export default {
   title: 'Components/{{pascalCase name}}',
   component: {{pascalCase name}},
@@ -15,6 +20,7 @@ export default {
   },
 };
 
+/** @type {Story} */
 export const Primary = {
   args: {
     // コンポーネントに引数がある場合、以下に追加

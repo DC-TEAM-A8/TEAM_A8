@@ -1,0 +1,45 @@
+.header {
+  /*position: fixed;*/
+  top: 0;
+  width: 100%; /* 画面の幅いっぱいにヘッダーを表示 */
+  background-color: blue; /* 青色の背景 */
+  color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* 要素を左右に均等に配置 */
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.lms{
+
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* 要素間の余白 */
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin-top: 70px; /* ヘッダーの高さ分だけコンテンツを下にずらす */
+}

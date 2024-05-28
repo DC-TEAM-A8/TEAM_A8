@@ -1,9 +1,10 @@
 // import { fn } from '@storybook/test';
-import { Sample } from './Sample';
+import React from 'react';
+import { Header } from './Header';
 
 export default {
-  title: 'Components/Sample',
-  component: Sample,
+  title: 'Components/Header',
+  component: Header,
   parameters: {
     layout: 'centered',
   },
@@ -18,6 +19,11 @@ export default {
 export const Primary = {
   args: {
     // コンポーネントに引数がある場合、以下に追加
-    text: "Helloo, World!"
+    // backgroundColor: 'red',
+    links: {
+      Report: "211",
+      result: "333",
+      thoughts: "111"
+    }
   },
 };
