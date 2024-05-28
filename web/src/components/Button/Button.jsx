@@ -35,6 +35,7 @@ export function Button(propsArg) {
       ""
     } ${props.className}`}
     onClick={() => props.onClick?.()}
+    href={props.href}
     >
       {props.children}
     </Element>

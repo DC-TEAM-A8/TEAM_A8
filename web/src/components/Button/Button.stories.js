@@ -37,7 +37,7 @@ export const PrimaryLink = {
   args: {
     children: "Primary Link Button",
     variant: "primary",
-    href: "#"
+    href: "https://www.google.com/"
   },
 };
 
