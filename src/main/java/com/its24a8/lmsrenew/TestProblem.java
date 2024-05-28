@@ -3,13 +3,16 @@ package com.its24a8.lmsrenew;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "test_problem")
 public class TestProblem {
 	public TestProblem(String content, String choice_1, String choice_2, String choice_3, String choice_4,
 			boolean[] collect) {
@@ -19,7 +22,9 @@ public class TestProblem {
 		this.choice_2 = choice_2;
 		this.choice_3 = choice_3;
 		this.choice_4 = choice_4;
-		this.collect = collect;
+		for(int i=0;i<this.collect.length;i++) {
+			this.collect[i] = collect[i];
+		}
 	}
 
 	@Id
@@ -32,6 +37,5 @@ public class TestProblem {
 	private String choice_3 = "";
 	private String choice_4 = "";
 	
-	@NotBlank(message = "collect cannot be empty")
 	private boolean[] collect = new boolean[4];
 }
