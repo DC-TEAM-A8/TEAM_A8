@@ -2,7 +2,7 @@
 import { DailyReportList } from './DailyReportList';
 
 export default {
-  title: 'Components/DailyReportList',
+  title: 'Components/DailyReportComponent/DailyReportList',
   component: DailyReportList,
   parameters: {
     layout: 'centered',
@@ -19,19 +19,11 @@ export const Primary = {
   args: {
     reportDataList: [
       {
-        title: '1',
-        text: 'これは'
+        title: '',
+        text: ''
       },
-      {
-        title: '2',
-        text: '別の'
-      },
-      {
-        title: '3',
-        text: 'レポートです。'
-      }
     ],
-    onEdit: () => console.log('編集ボタンがクリックされました'),
-    onDelete: () => console.log('削除ボタンがクリックされました'),
+    onEdit: () => console.log(''),
+    onDelete: () => console.log(''),
   },
 };

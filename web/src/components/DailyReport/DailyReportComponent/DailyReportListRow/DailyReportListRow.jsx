@@ -1,13 +1,4 @@
 /**
- * @typedef {Object} DailyReportData
- * @property {string} title - レポートのタイトル
- * @property {string} text - レポートの本文
- */
-/**
- * @param {Object} props 
- * @param {DailyReportData} props.reportData - レポートのデータ
- * @param {Function} props.onEdit - 編集ボタンがクリックされたときのハンドラ
- * @param {Function} props.onDelete - 削除ボタンがクリックされたときのハンドラ
  */
 export function DailyReportListRow(props) {
   const { title, text } = props.reportData;
@@ -17,7 +8,7 @@ export function DailyReportListRow(props) {
       justifyContent: 'space-between', // 画面の左端と右端に子要素を配置
       backgroundColor: 'white',
       width: '100%',
-      padding : "7px",
+      padding : "10px",
     }}>
       {/* タイトル */}
       <span 
@@ -43,12 +34,12 @@ export function DailyReportListRow(props) {
           color: 'white',
           backgroundColor: 'blue',
           border: "none", 
-        borderRadius: "7px",
-        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+          borderRadius: "7px",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
         }}>編集</button>
         {/* 編集ボタン*/}
         {/* 削除ボタン*/}
-        <button onClick={props.onDelete} 
+        <button onClick={props.onDelete(props.title)} 
         style={{
           color: 'white',
           backgroundColor: 'red',
