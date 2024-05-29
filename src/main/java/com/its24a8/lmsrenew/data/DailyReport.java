@@ -23,6 +23,13 @@ public class DailyReport {
         this.title = title;
         this.content = content;
     }
+    
+    public DailyReport(User user, String title, String content, LocalDateTime posted) {
+        this.user = user;
+        this.title = title;
+        this.content = content;
+        this.posted = posted;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
