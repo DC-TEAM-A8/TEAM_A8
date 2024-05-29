@@ -1,13 +1,22 @@
 package com.its24a8.lmsrenew.data;
 
-import jakarta.persistence.*;
+import java.time.LocalDate;
+
+import org.springframework.data.annotation.CreatedDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.springframework.data.annotation.CreatedDate;
-
-import java.time.LocalDate;
 
 @Data
 @Entity
@@ -15,13 +24,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Attendance {
     public Attendance(
-            long user_id,
+    		User user,
             LocalDate attendance_date,
             long index,
             AttendanceType type,
             @NonNull String memo
     ) {
-        this.user_id = user_id;
+        this.user = user;
         this.attendance_date = attendance_date;
         this.index = index;
         this.type = type;
@@ -32,7 +41,9 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    long user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreatedDate
     LocalDate attendance_date = LocalDate.now();
