@@ -22,7 +22,5 @@ export default function Home() {
     >
       {count}+1
     </Button>
-
-
   </div>
 }
