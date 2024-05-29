@@ -4,6 +4,7 @@ import { Warning } from '../Warning';
 import { Calendar } from '../Calendar';
 import { Button } from '../Button';
 import { ReviewForm } from '../ReviewForm';
+import { OldDailyReportForm } from '../OldDailyReportForm';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isBetween);
@@ -166,7 +167,9 @@ export function Home(props) {
             {/* 出席とリンク */}
             <div className="flex flex-col gap-2">
               <Button
-                onClick={() => { }}
+                onClick={() => {
+                  props.onAttend?.();
+                }}
                 className={`${attendable ? "cursor-pointer" : "cursor-not-allowed"}`}
                 variant={
                   attendable
@@ -178,7 +181,7 @@ export function Home(props) {
                   isToday(currentDate)
                     ? attendancePeriod === -1
                       ? "出席時間外"
-                      : attendable
+                      : todayAttendance[attendancePeriod]
                         ? "出席済み"
                         : "出席する"
                     : targetDayAttendance.every(att => att)
@@ -209,24 +212,35 @@ export function Home(props) {
         </div>
 
         {/* 日報 */}
-        <div className="">
-          [日報フォーム]
+        <div className="flex flex-col gap-4 p-4 border rounded-md">
+          <span className="text-slate-600">日報</span>
+          <OldDailyReportForm
+            className="w-full"
+            onSubmit={e => {
+              e.preventDefault();
+            }}
+          />
         </div>
 
         {/* 感想シート */}
-        <div className="flex flex-row gap-8 justify-center m-4">
-          <ReviewForm
-            dateStr=""
-            indexStr=""
-            instructorName=""
-            className="border rounded-md p-4"
-          />
-          <ReviewForm
-            dateStr=""
-            indexStr=""
-            instructorName=""
-            className="border rounded-md p-4"
-          />
+        <div className="flex flex-col gap-2 justify-center p-4 border rounded-md">
+          <span className="text-slate-600">
+            感想シート
+          </span>
+          <div className="flex flex-row gap-8 justify-center overflow-x-scroll hidden-scrollbar">
+            <ReviewForm
+              dateStr=""
+              indexStr=""
+              instructorName=""
+              className="border rounded-md p-4"
+            />
+            <ReviewForm
+              dateStr=""
+              indexStr=""
+              instructorName=""
+              className="border rounded-md p-4"
+            />
+          </div>
         </div>
       </div>
     </div>

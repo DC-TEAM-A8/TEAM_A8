@@ -45,7 +45,7 @@ export function CalendarDay(propsArg) {
           ? "bg-blue-950"
           : ""
       }`} />
-      <p className="absolute inset-0 size-full flex justify-center items-center">
+      <p className="absolute inset-0 p-0 m-0 size-full flex justify-center items-center">
         {props.date.getDate()}
       </p>
     </button>
