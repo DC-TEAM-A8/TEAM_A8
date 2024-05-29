@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -17,23 +19,20 @@ import lombok.NoArgsConstructor;
 @Table(name = "feedback")
 public class FeedBack {
 
-    public FeedBack(String content, int rating_1, int rating_2, int rating_3, String comment, long user_id, long lesson_id) {
-    	  super();
+    public FeedBack(String content, int rating_1, int rating_2, int rating_3, String comment, User user, Lesson lesson) {
+        super();
         this.content = content;
         this.rating_1 = rating_1;
         this.rating_2 = rating_2;
         this.rating_3 = rating_3;
         this.comment = comment;
-        this.user_id = user_id;
-        this.lesson_id = lesson_id;
+        this.user = user;
+        this.lesson = lesson;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
-    private long user_id;
-    private long lesson_id;
 
     @NotBlank(message = "Content cannot be empty")
     private String content;
@@ -52,5 +51,13 @@ public class FeedBack {
 
     @NotBlank(message = "Comment cannot be empty")
     private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
 }
 
