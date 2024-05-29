@@ -18,9 +18,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 public class User {
-    public User(String name, Type type, Class classes) {
+    public User(String name, String password, Type type, StudentClass classes) {
         super();
         this.name = name;
+        this.password = password;
         this.type = type;
         this.classes = classes;
     }
@@ -31,11 +32,14 @@ public class User {
 
     @NotBlank(message = "Name cannot be empty")
     private String name;
+    
+    @NotBlank(message = "Password cannot be empty")
+    private String password;
 
     @Enumerated(EnumType.STRING)
     private Type type;
 
     @ManyToOne
     @JoinColumn(name = "class_id")
-    private Class classes;
+    private StudentClass classes;
 }
