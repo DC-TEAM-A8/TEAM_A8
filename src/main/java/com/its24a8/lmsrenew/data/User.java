@@ -29,15 +29,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long class_id;
-
     @NotBlank(message = "Name cannot be empty")
     private String name;
 
     @Enumerated(EnumType.STRING)
     private Type type;
-    
+
     @ManyToOne
-    @JoinColumn(name = "class_id", insertable = false, updatable = false)
+    @JoinColumn(name = "class_id")
     private Class classes;
 }

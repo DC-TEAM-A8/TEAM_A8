@@ -14,9 +14,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "test_problem")
 public class TestProblem {
-	public TestProblem(String content, String choice_1, String choice_2, String choice_3, String choice_4,
+	public TestProblem(String section,int idx,String content, String choice_1, String choice_2, String choice_3, String choice_4,
 			boolean[] collect) {
 		super();
+		this.section = section;
+		this.idx = idx;
 		this.content = content;
 		this.choice_1 = choice_1;
 		this.choice_2 = choice_2;
@@ -31,6 +33,8 @@ public class TestProblem {
 	@GeneratedValue
 	private long id;
 
+	private String section;
+	private int idx;
 	private String content;
 	private String choice_1 = "";
 	private String choice_2 = "";
@@ -38,4 +42,5 @@ public class TestProblem {
 	private String choice_4 = "";
 	
 	private boolean[] collect = new boolean[4];
+
 }
