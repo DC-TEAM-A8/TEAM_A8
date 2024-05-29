@@ -26,13 +26,11 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long company_id;
-    
     private String class_name;
     
     private String conference_link;
 
     @ManyToOne
-    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    @JoinColumn(name = "company_id")
     private Company company;
 }
