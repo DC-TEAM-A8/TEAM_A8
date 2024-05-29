@@ -13,9 +13,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "class")
-public class Class {
-    public Class(String class_name, String conference_link, Company company) {
+@Table(name = "studentclass")
+public class StudentClass {
+    public StudentClass(String class_name, String conference_link, Company company) {
         super();
         this.class_name = class_name;
         this.conference_link = conference_link;
@@ -25,6 +25,8 @@ public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    private long company_id;
 
     private String class_name;
     

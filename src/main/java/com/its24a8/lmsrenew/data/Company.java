@@ -15,10 +15,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "company")
 public class Company {
-    public Company(LocalDateTime start_at, LocalDateTime end_at, String conference_link) {
+    public Company(LocalDateTime start_at, LocalDateTime end_at, String company_name, String conference_link) {
         super();
         this.start_at = start_at;
         this.end_at = end_at;
+        this.company_name = company_name;
         this.conference_link = conference_link;
     }
 
@@ -29,6 +30,8 @@ public class Company {
     private LocalDateTime start_at;
     
     private LocalDateTime end_at;
+    
+    private String company_name;
     
     private String conference_link;
 }
