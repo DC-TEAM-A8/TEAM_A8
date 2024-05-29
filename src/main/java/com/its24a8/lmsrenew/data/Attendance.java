@@ -1,6 +1,6 @@
 package com.its24a8.lmsrenew.data;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -25,7 +25,7 @@ import lombok.NonNull;
 public class Attendance {
     public Attendance(
     		User user,
-            LocalDate attendance_date,
+            LocalDateTime attendance_date,
             long index,
             AttendanceType type,
             @NonNull String memo
@@ -46,7 +46,7 @@ public class Attendance {
     private User user;
 
     @CreatedDate
-    LocalDate attendance_date = LocalDate.now();
+    LocalDateTime attendance_date = LocalDateTime.now();
 
     @Column(name = "attendance_index")
     long index;
