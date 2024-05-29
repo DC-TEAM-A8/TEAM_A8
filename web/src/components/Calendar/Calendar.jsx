@@ -29,6 +29,7 @@ function useCalDates(today) {
  */
 /**
  * @typedef {Object} ICalendarProps
+ * @property {string} [className]
  * @property {(changedDate: Date) => void} [onChange] 選択された日付が変更されたときに呼ばれるコールバック
  * @property {{date: Date, status: TAttendanceStatus}[]} status 出席状況
  * @property {Date} targetDate 選択されている日付
@@ -43,7 +44,7 @@ export function Calendar(props) {
   const days = useMemo(() => useCalDates(dayjs(targetDate)), [targetDate])
 
   return (
-    <div className="flex flex-col">
+    <div className={`flex flex-col ${props.className || ""}`}>
       <div className="flex flex-row">
         {[
           "日",
