@@ -25,8 +25,6 @@ public class StudentClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
-    private long company_id;
 
     private String class_name;
     
