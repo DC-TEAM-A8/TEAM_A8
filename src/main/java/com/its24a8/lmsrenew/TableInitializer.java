@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.its24a8.lmsrenew.data.AttendanceRepository;
 import com.its24a8.lmsrenew.data.Company;
 import com.its24a8.lmsrenew.data.CompanyRepository;
+import com.its24a8.lmsrenew.data.DailyReport;
 import com.its24a8.lmsrenew.data.DailyReportRepository;
 import com.its24a8.lmsrenew.data.FeedBackRepository;
 import com.its24a8.lmsrenew.data.LessonRepository;
@@ -87,6 +88,22 @@ public class TableInitializer {
 				);
 		userrep.saveAll(list);
 		return userrep.findAll();
+	}
+	
+	public List<DailyReport> dailyReportInit(List<User> users){
+		List<DailyReport> list = new ArrayList<>();
+		
+
+		for(int i=0;i<30;i++) {
+			LocalDateTime day = LocalDateTime.of(2024, 4, i+1, 0, i+1);
+			for(int j=0;j<3;j++) {
+				DailyReport dr = new DailyReport(users.get(j),"日報タイトル","日報の内容です日報の内容です日報の内容です",day);
+				list.add(dr);
+			}
+		}
+		
+		dailyrep.saveAll(list);
+		return dailyrep.findAll();
 	}
 	
 	public List<TestProblem> testproInit(){
