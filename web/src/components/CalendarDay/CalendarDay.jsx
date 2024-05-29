@@ -28,7 +28,7 @@ export function CalendarDay(propsArg) {
   const props = { ...defaultProps, ...propsArg };
   return (
     <button
-      className={`size-8 relative rounded-sm ${props.className || ""}`}
+      className={`size-8 m-0 p-0 relative rounded-sm ${props.className || ""}`}
       onClick={() => props.onClick?.(props.date)}
     >
       <div className="flex flex-col size-full">
@@ -45,7 +45,7 @@ export function CalendarDay(propsArg) {
           ? "bg-blue-950"
           : ""
       }`} />
-      <p className="absolute inset-0 size-full flex justify-center items-center">
+      <p className="absolute inset-0 p-0 m-0 size-full flex justify-center items-center">
         {props.date.getDate()}
       </p>
     </button>
