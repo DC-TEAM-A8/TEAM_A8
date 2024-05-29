@@ -6,6 +6,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -16,11 +18,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 public class User {
-    public User(String name, Type type, long class_id) {
+    public User(String name, Type type, Class classes) {
         super();
         this.name = name;
         this.type = type;
-        this.class_id = class_id;
+        this.classes = classes;
     }
 
     @Id
@@ -34,4 +36,8 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Type type;
+    
+    @ManyToOne
+    @JoinColumn(name = "class_id", insertable = false, updatable = false)
+    private Class classes;
 }
