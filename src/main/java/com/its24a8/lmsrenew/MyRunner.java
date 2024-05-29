@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.its24a8.lmsrenew.data.TestPreferenceRepository;
-
 @Component
 public class MyRunner implements CommandLineRunner{
 	@Autowired
-	TestPreferenceRepository tpr;
+	TableInitializer init;
 
 	@Override
 	public void run(String... args) throws Exception {
