@@ -27,40 +27,71 @@ export const Primary = {
     // backgroundColor: 'red',
     subjects: [
       {
-        name: "JS",
-        link: "/js"
+        name: "デジタル資料の活用方法",
+        link: "/te"
       },
       {
-        name: "TS",
+        name: "エディタインストール方法",
         link: "/ts"
       },
       {
-        name: "?S",
+        name: "ホームページA",
         link: "/_s"
       },
       {
-        name: "JS",
+        name: "ホームページB",
         link: "/js"
       },
       {
-        name: "TS",
+        name: "ホームページC",
         link: "/ts"
       },
       {
-        name: "?S",
+        name: "JavaScript",
         link: "/_s"
       },
       {
-        name: "JS",
+        name: "Git",
         link: "/js"
       },
       {
-        name: "TS",
+        name: "JavaA",
         link: "/ts"
       },
       {
-        name: "?S",
+        name: "JavaB",
         link: "/_s"
+      },
+      {
+        name: "ITリテラシー",
+        link: "/_s"
+      },
+    ],
+
+    materials:[
+      {
+        name: "研修資材_A",
+        link: "/_a"
+      },
+      {
+        name: "研修資材_B",
+        link: "/_b"
+      },
+      {
+        name: "研修資材_C",
+        link: "/_c"
+      },
+      {
+        name: "研修資材_D",
+        link: "/_d"
+      },
+      {
+        name: "研修資材_E",
+        link: "/_e"
+      },
+      {
+        name: "研修資材_F",
+        link: "/_f"
       },
     ]
   },
