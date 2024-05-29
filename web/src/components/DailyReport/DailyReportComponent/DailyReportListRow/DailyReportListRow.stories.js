@@ -1,7 +1,7 @@
 // import { fn } from '@storybook/test';
 import { DailyReportListRow } from './DailyReportListRow';
 export default {
-  title: 'Components/DailyReportListRow',
+  title: 'Components/DailyReportComponent/DailyReportListRow',
   component: DailyReportListRow,
   parameters: {
     layout: 'centered',
