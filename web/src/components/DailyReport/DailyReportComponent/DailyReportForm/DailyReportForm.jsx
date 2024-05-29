@@ -23,7 +23,7 @@ export function DailyReportForm(props) {
             rows="10" cols="50" required />
         </div>
         <br/>
-        <Button href = {homeUrl} className="submitButton" onClick={handleSubmit}>送信</Button>
+        <Button element="inputSubmit" className="submitButton" onClick={handleSubmit}>送信</Button>
       </form>
   );
 }
