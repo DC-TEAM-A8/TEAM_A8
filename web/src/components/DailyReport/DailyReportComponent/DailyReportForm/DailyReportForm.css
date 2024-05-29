@@ -1,0 +1,18 @@
+.daily-report-form {
+    padding-bottom: 30px;
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    border: 2px solid;
+  }
+  
+  .submitButton {
+    width: 100%;
+  }
+  
