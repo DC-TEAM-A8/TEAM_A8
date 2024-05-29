@@ -4,7 +4,7 @@ import { Warning } from '../Warning';
 import { Calendar } from '../Calendar';
 import { Button } from '../Button';
 import { ReviewForm } from '../ReviewForm';
-import { OldDailyReportForm } from '../OldDailyReportForm';
+import { DailyReportForm } from '../DailyReport/DailyReportComponent/DailyReportForm';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isBetween);
@@ -49,7 +49,7 @@ export function Home(props) {
   const failedAttendance = props.attendanceData
     .map(attendance => {
       return attendance.status.map((att, i) => {
-        if (att && !isToday(attendance.date)) {
+        if (!att && !isToday(attendance.date)) {
           /** @type {IFailedAttendance} */
           return {
             date: attendance.date,
@@ -214,7 +214,7 @@ export function Home(props) {
         {/* 日報 */}
         <div className="flex flex-col gap-4 p-4 border rounded-md">
           <span className="text-slate-600">日報</span>
-          <OldDailyReportForm
+          <DailyReportForm
             className="w-full"
             onSubmit={e => {
               e.preventDefault();
