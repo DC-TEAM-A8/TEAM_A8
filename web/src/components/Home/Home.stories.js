@@ -10,7 +10,7 @@ export default {
   title: 'Components/Home',
   component: Home,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen'
   },
   tags: ['autodocs'],
   argTypes: {},
@@ -25,5 +25,25 @@ export const Primary = {
   args: {
     // コンポーネントに引数がある場合、以下に追加
     // backgroundColor: 'red',
+    attendanceData: [
+      {
+        date: new Date("2024-06-01"),
+        status: [true, false]
+      },
+      {
+        date: new Date("2024-06-02"),
+        status: [false, true]
+      }
+    ],
+    schedule: [
+      {
+        date: new Date("2024-05-29"),
+        scheduleName: ["HTML", "Java応用"]
+      },
+      {
+        date: new Date("2024-06-01"),
+        scheduleName: ["JavaScript", "Java応用"]
+      },
+    ]
   },
 };
