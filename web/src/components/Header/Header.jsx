@@ -18,7 +18,7 @@ export function Header(props) {
       <nav>
         <ul className="nav-links">
           <li><Link href={links.Report}>日報確認</Link></li>
-          <li><Link href={links.result}>試験結果確認</Link></li>
+          <li><Link href={links.result}>試験確認</Link></li>
           <li><Link href={links.thoughts}>感想シート閲覧</Link></li>
         </ul>
       </nav>

@@ -15,10 +15,18 @@ import { SubmitButton } from "./button"
  */
 export async function DailyReportForm(props) {
   "use server"
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.onSubmit?.();
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const formData = new FormData(event.target);
+  //   try {
+  //     const response = await fetch('http://localhost:8080/dailyReports/save', {
+  //       method: 'POST',
+  //       body: formData
+  //     });
+  //   } catch (error) {
+  //     console.error('ポストエラー:', error);
+  //   }
+  // };
   return (
     <>
       <form className="form" id="myForm" {...props}>
