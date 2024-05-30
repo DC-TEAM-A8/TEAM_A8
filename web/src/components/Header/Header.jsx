@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Header.css'; 
+import Link from 'next/link';
 
 /**
  * @param {{
@@ -16,9 +17,9 @@ export function Header(props) {
       <div className="logo">{title}</div>
       <nav>
         <ul className="nav-links">
-          <li><a href={links.Report}>日報確認</a></li>
-          <li><a href={links.result}>試験結果確認</a></li>
-          <li><a href={links.thoughts}>感想シート閲覧</a></li>
+          <li><Link href={links.Report}>日報確認</Link></li>
+          <li><Link href={links.result}>試験結果確認</Link></li>
+          <li><Link href={links.thoughts}>感想シート閲覧</Link></li>
         </ul>
       </nav>
     </header>
