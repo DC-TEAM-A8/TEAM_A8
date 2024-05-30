@@ -4,30 +4,19 @@ import { DailyReportForm } from "@/components/DailyReport/DailyReportComponent/D
 // import { DRForm } from "./form"
 
 export default async function DailyReport() {
-  'use server'
-  const reportDataList = [
-    {
-      title: '1',
-      text: 'これは'
-    },
-    {
-      title: '２',
-      text: 'home'
-    },
-    {
-      title: '３',
-      text: 'です'
-    },
-  ]
-  const submitAction = () => console.log("submit");//window.location.href = "/DailyReport";
-  const editAction = () => console.log('edit');
-  const deleteAction = () => console.log('delete');
-  const deleteConfirmAction = () => console.log('delete confirm');
-  const deleteCancelAction = () => console.log('delete cancel');
-
-  async function action() {
-    console.log("server action")
-  }
+  const response = await fetch("http://localhost:8080/dailyReports");
+  const result = await response.json();
+  const reportDataList = result["_embedded"]["dailyReports"].map(dr => ({title:dr.title,text:dr.content}))
+  console.log(reportDataList);
+  // const submitAction = async () => {
+  //   const response = await fetch("http://localhost:8080/dailyReports/save",{
+  //     method : "POST",
+  //   })
+  // }
+  // const editAction = () => console.log('edit');
+  // const deleteAction = () => console.log('delete');
+  // const deleteConfirmAction = () => console.log('delete confirm');
+  // const deleteCancelAction = () => console.log('delete cancel');
 
   return (
     <div>
@@ -36,18 +25,26 @@ export default async function DailyReport() {
       </DRHome> */}
       <DailyReportHome
         reportDataList={reportDataList}
-        // onSubmit={onSubmit}
-        // onEdit={onEdit}
-        // onDelete={onDelete}
-        // onDeleteConfirm={onDeleteConfirm}
-        // onDeleteCancel={onDeleteCancel}
-        // submitAction={submitAction}
-        // editAction={editAction}
-        // deleteAction={deleteAction}
-        // deleteConfirmAction={deleteConfirmAction}
-        // deleteCancelAction={deleteCancelAction}
+        //onSubmit={submitAction}
       >
-        <DailyReportForm />
+        <DailyReportForm
+          action={async formData => {
+            "use server"
+            const data = {
+              title: formData.get("title"),
+              content: formData.get("content"),
+              user: "/users/1",
+              posted: new Date()
+            }
+            await fetch("http://localhost:8080/dailyReports", {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-Type": "application/json"
+              }
+            })
+          }}
+        />
       </DailyReportHome>
     </div>
   );
