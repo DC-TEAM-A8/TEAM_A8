@@ -1,9 +1,9 @@
 // import { fn } from '@storybook/test';
-import { DailyReportDeleteComfirm } from './DailyReportDeleteComfirm';
+import { DailyReportDeleteConfirm } from './DailyReportDeleteConfirm';
 
 export default {
-  title: 'Components/DailyReportDeleteComfirm',
-  component: DailyReportDeleteComfirm,
+  title: 'Components/DailyReportDeleteConfirm',
+  component: DailyReportDeleteConfirm,
   parameters: {
     layout: 'centered',
   },
