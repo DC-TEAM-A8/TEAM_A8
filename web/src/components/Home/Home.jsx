@@ -1,12 +1,14 @@
-import React, { Fragment, useState } from 'react';
-import { Header } from '../Header';
-import { Warning } from '../Warning';
-import { Calendar } from '../Calendar';
-import { Button } from '../Button';
-import { ReviewForm } from '../ReviewForm';
-import { DailyReportForm } from '../DailyReport/DailyReportComponent/DailyReportForm';
+"use client"
+
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
+import { useState } from 'react';
+import { Button } from '../Button';
+import { Calendar } from '../Calendar';
+// import { DailyReportForm } from '../DailyReport/DailyReportComponent/DailyReportForm';
+import { Header } from '../Header';
+import { ReviewForm } from '../ReviewForm';
+import { Warning } from '../Warning';
 dayjs.extend(isBetween);
 
 /**
@@ -41,6 +43,8 @@ function isToday(date, today = undefined) {
  * @property {string} [className]
  * @property {IAttendanceData[]} attendanceData
  * @property {ISchedule[]} schedule
+ * @property {React.ReactNode} [dailyReportForm]
+ * @property {React.ReactNode} [children]
  * @property {() => void} [onAttend]
  * @param { IHomeProps } props
  */
@@ -108,16 +112,16 @@ export function Home(props) {
     : dayjs().isBetween(attendBorder[1], attendBorder[2])
       ? 1
       : -1;
-  
+
   const attendable = isToday(currentDate) && attendancePeriod !== -1 && !todayAttendance[attendancePeriod];
 
   return (
     <div className="">
-      <Header title="LMS" links={{
+      {/* <Header title="LMS" links={{
         Report: "/report",
         result: "/result",
         thoughts: "/thoughts"
-      }} />
+      }} /> */}
       <div className="flex flex-col gap-2 mx-8 my-4">
         {/* WarningContainer */}
         {failedAttendance.length !== 0 && (
@@ -173,8 +177,8 @@ export function Home(props) {
                 className={`${attendable ? "cursor-pointer" : "cursor-not-allowed"}`}
                 variant={
                   attendable
-                  ? "primary"
-                  : "disabled"
+                    ? "primary"
+                    : "disabled"
                 }
               >
                 {
@@ -214,12 +218,9 @@ export function Home(props) {
         {/* 日報 */}
         <div className="flex flex-col gap-4 p-4 border rounded-md">
           <span className="text-slate-600">日報</span>
-          <DailyReportForm
-            className="w-full"
-            onSubmit={e => {
-              e.preventDefault();
-            }}
-          />
+          {/* <props.dailyReportForm/> */}
+          {/* {props.dailyReportForm} */}
+          {props.children}
         </div>
 
         {/* 感想シート */}

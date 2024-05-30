@@ -11,7 +11,9 @@ import React from "react";
  * @property {string} [href]
  * @property {() => void} [onClick]
  * @property {IWarningVariant} [variant]
- * @type { IWarningProps }
+ */
+/**
+ * @type { Partial<IWarningProps> }
  */
 const defaultProps = {
   variant: "warning"
@@ -22,8 +24,8 @@ const defaultProps = {
 export function Warning(propsArg) {
   const props = { ...defaultProps, ...propsArg }
   const Element = props.href
-    ? _prop => <a {..._prop} />
-    : _prop => <div {..._prop} />
+    ? (/** @type {any} */_prop) => <a {..._prop} />
+    : (/** @type {any} */_prop) => <div {..._prop} />
   return (
     <Element
       className={`w-full border-2 border-slate-800 relative px-8 py-4 before:absolute before:w-4 before:inset-0 before:bg-red-500 flex flex-col gap-2 select-none hover:bg-slate-100 transition-[background-color] ${props.className ?? ""}`}

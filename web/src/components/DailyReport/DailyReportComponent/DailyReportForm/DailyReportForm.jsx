@@ -2,9 +2,12 @@
 
 import "./DailyReportForm.css";
 import { Button } from "../../../Button/Button";
+import { SubmitButton } from "./button"
+
 /**
  * @typedef {object} IDailyReportFormProps
  * @property {Function} [onSubmit]
+ * @property {Function} [action]
  * @extends {React.HTMLProps<HTMLFormElement>}
  */
 /**
@@ -18,18 +21,36 @@ export async function DailyReportForm(props) {
   };
   return (
     <>
-      <form className="form" id="myForm">
+      <form className="form" id="myForm" {...props}>
         <div>
-          <p >題名 <span style={{ color: "red" }}>※必須</span></p>
-          <input type="text" className="input" required />
+          <label htmlFor="title">
+            題名
+            <span style={{ color: "red" }}>
+              ※必須
+            </span>
+          </label>
+          <input type="text" name="title" id="title" className="input" required />
         </div>
         <div>
-          <p>本文 <span style={{ color: "red" }}>※必須</span></p>
-          <textarea className="textarea" placeholder="日報の内容を入力してください"
-            rows="10" cols="50" required />
+          <label htmlFor="content">
+            本文
+            <span style={{ color: "red" }}>
+              ※必須
+            </span>
+          </label>
+          <textarea
+            className="textarea"
+            placeholder="日報の内容を入力してください"
+            id="content"
+            name="content"
+            rows={10}
+            cols={50}
+            required
+          />
         </div>
         <br />
-        <Button element="inputSubmit" className="submitButton">送信</Button>
+        {/* <Button element="inputSubmit" className="submitButton">送信</Button> */}
+        <SubmitButton />
       </form>
     </>
   );
