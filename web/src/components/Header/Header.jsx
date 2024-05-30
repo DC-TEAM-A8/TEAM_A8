@@ -14,7 +14,7 @@ export function Header(props) {
 
   return (
     <header className="header">
-      <Link className="logo" href="/students/home">{title}</Link>
+      <Link className="logo" href="/">{title}</Link>
       <nav>
         <ul className="nav-links">
           <li><Link href={links.Report}>日報確認</Link></li>
