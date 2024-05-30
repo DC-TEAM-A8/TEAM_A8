@@ -39,7 +39,3 @@
 .nav-links a:hover {
   text-decoration: underline;
 }
-
-body {
-  margin-top: 70px; /* ヘッダーの高さ分だけコンテンツを下にずらす */
-}
