@@ -22,6 +22,20 @@ export default async function HomePage() {
    */
   const schedule = [
     {
+      date: new Date('2024-05-28'),
+      scheduleName: [
+        'HTML',
+        'Java応用'
+      ]
+    },
+    {
+      date: new Date('2024-05-29'),
+      scheduleName: [
+        'HTML',
+        'Java応用'
+      ]
+    },
+    {
       date: new Date('2024-05-30'),
       scheduleName: [
         'HTML',

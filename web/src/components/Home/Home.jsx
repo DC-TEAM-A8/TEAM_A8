@@ -228,15 +228,15 @@ export function Home(props) {
           </span>
           <div className="flex flex-row gap-8 justify-center overflow-x-scroll hidden-scrollbar">
             <ReviewForm
-              datestr=""
-              indexstr=""
-              instructorName=""
+              datestr={`${today} 10:00:00 - 12:30:00`}
+              indexstr="第1回"
+              instructorName="田中太郎"
               className="border rounded-md p-4"
             />
             <ReviewForm
-              datestr=""
-              indexstr=""
-              instructorName=""
+              datestr={`${today} 13:30:00 - 18:00:00`}
+              indexstr="第1回"
+              instructorName="佐藤花子"
               className="border rounded-md p-4"
             />
           </div>
