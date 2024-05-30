@@ -25,5 +25,6 @@ export const Primary = {
       result: "333",
       thoughts: "111"
     }
+    
   },
 };
