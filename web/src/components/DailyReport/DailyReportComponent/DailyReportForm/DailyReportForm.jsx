@@ -2,6 +2,8 @@
 
 import "./DailyReportForm.css";
 import { Button } from "../../../Button/Button";
+import { SubmitButton } from "./button"
+
 /**
  * @typedef {object} IDailyReportFormProps
  * @property {Function} [onSubmit]
@@ -55,7 +57,8 @@ export async function DailyReportForm(props) {
           />
         </div>
         <br />
-        <Button element="inputSubmit" className="submitButton">送信</Button>
+        {/* <Button element="inputSubmit" className="submitButton">送信</Button> */}
+        <SubmitButton />
       </form>
     </>
   );

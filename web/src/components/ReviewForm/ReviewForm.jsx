@@ -4,10 +4,9 @@ import { Button } from "../Button"
 
 /**
  * @typedef {object} IReviewFormProps
- * @extends {React.HTMLAttributes<HTMLFormElement>}
  * @property {string} [className]
- * @property {string} dateStr 日時 ( 2024-05-24(金) 10:00:00 - 12:30:00 など)
- * @property {string} indexStr 回数 ( 第1回 など)
+ * @property {string} datestr 日時 ( 2024-05-24(金) 10:00:00 - 12:30:00 など)
+ * @property {string} indexstr 回数 ( 第1回 など)
  * @property {string} instructorName 講師名
  * 
  * @param { IReviewFormProps } props
@@ -17,12 +16,15 @@ export function ReviewForm(props) {
     <form
       {...props}
       className={`flex flex-col gap-1 ${props.className}`}
+      action={async formData => {
+        console.log("review submit")
+      }}
     >
       <p className="">
-        {props.dateStr}
+        {props.datestr}
       </p>
       <p className="">
-        {props.indexStr}
+        {props.indexstr}
       </p>
       <div className="flex gap-4">
         <div className=" bg-gray-300 rounded-full size-12 my-auto" />
@@ -48,6 +50,7 @@ export function ReviewForm(props) {
           id="review-comment"
           name="comment"
           className="outline-none border-2 border-slate-300 focus:border-slate-700 box-border resize-none h-36 w-full transition-[border]"
+          required
         />
       </label>
 
