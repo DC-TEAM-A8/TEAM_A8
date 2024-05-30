@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <Header
           title={metadata.title || ""}
           links = {{
-          Report: "/dailyReport",
+          Report: "/DailyReport",
           result: "/test",
           thoughts: "/"
         }} />
