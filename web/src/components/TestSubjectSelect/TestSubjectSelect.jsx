@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import './TestSubjectSelect.css'; 
+"use client"
 
-const TestSubjectSelect = () => {
+import React, { useState } from 'react';
+import './TestSubjectSelect.css';
+
+export const TestSubjectSelect = (props) => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [maxSessions, setMaxSessions] = useState(0);
 
@@ -10,7 +12,9 @@ const TestSubjectSelect = () => {
     setMaxSessions(sessions);
   };
 
-  const subjects = [
+  const { subjects } = props
+  /*
+  [
     { name: 'ホームページA', sessions: 4 },
     { name: 'ホームページB', sessions: 4 },
     { name: 'ホームページC', sessions: 4 },
@@ -22,6 +26,7 @@ const TestSubjectSelect = () => {
     { name: 'ビジネスマナー(法人)', sessions: 1 },
     { name: 'システム設計基礎(法人)', sessions: 3 }
   ];
+  */
 
   return (
     <div>
@@ -57,13 +62,13 @@ const TestSubjectSelect = () => {
                   <td>-</td>
                 </tr>
               ))}
-                <tr>
-                  <td>本試験</td>
-                  <td><button className="apply-button">受験する</button></td>
-                  <td>30分</td>
-                  <td>70%以上</td>
-                  <td>-</td>
-                </tr>
+              <tr>
+                <td>本試験</td>
+                <td><button className="apply-button">受験する</button></td>
+                <td>30分</td>
+                <td>70%以上</td>
+                <td>-</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -71,5 +76,3 @@ const TestSubjectSelect = () => {
     </div>
   );
 };
-
-export default TestSubjectSelect;

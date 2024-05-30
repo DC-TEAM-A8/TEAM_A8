@@ -1,1 +1,3 @@
-export * from './TestSubjectSelect';
+"use client"
+
+export { TestSubjectSelect } from './TestSubjectSelect';
