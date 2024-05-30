@@ -1,8 +1,11 @@
+"use client"
+
 import React, { Fragment, useState } from "react";
 
 /**
  * @typedef {object} IReviewFormRankInputProps
  * @property {string} [className]
+ * @property {string} [name]
  * @property {string} title
  * @property {(rank: number) => void} [onChange]
  * @param { IReviewFormRankInputProps } props
@@ -30,6 +33,7 @@ export function ReviewFormRankInput(props) {
                 }}
                 className="size-0 opacity-0" // Add the "hidden" class to hide the radio button
                 defaultChecked={rank === currentRank}
+                required
               />
               ★
             </label>

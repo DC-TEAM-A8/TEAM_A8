@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
 // import { DailyReportForm } from '../DailyReport/DailyReportComponent/DailyReportForm';
-import { Header } from '../Header';
-import { ReviewForm } from '../ReviewForm';
+// import { Header } from '../Header';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 import { Warning } from '../Warning';
 dayjs.extend(isBetween);
 
@@ -218,8 +218,6 @@ export function Home(props) {
         {/* 日報 */}
         <div className="flex flex-col gap-4 p-4 border rounded-md">
           <span className="text-slate-600">日報</span>
-          {/* <props.dailyReportForm/> */}
-          {/* {props.dailyReportForm} */}
           {props.children}
         </div>
 
@@ -230,14 +228,14 @@ export function Home(props) {
           </span>
           <div className="flex flex-row gap-8 justify-center overflow-x-scroll hidden-scrollbar">
             <ReviewForm
-              dateStr=""
-              indexStr=""
+              datestr=""
+              indexstr=""
               instructorName=""
               className="border rounded-md p-4"
             />
             <ReviewForm
-              dateStr=""
-              indexStr=""
+              datestr=""
+              indexstr=""
               instructorName=""
               className="border rounded-md p-4"
             />

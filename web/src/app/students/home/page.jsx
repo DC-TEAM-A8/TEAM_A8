@@ -7,32 +7,29 @@ import { DailyReportForm } from '@/components/DailyReport/DailyReportComponent/D
 const API_BASE = "http://localhost:8080"
 
 export default async function HomePage() {
+  /** @type {{date:Date,status:[boolean,boolean]}[]} */
   const attendanceData = [
     {
-      date: new Date('2024-06-01'),
+      date: new Date('2024-05-28'),
       status: [
         true,
         false
       ]
-    },
-    {
-      date: new Date('2024-06-02'),
-      status: [
-        false,
-        true
-      ]
     }
   ]
+  /**
+   * @type { { date: Date, scheduleName: [string, string] }[] }
+   */
   const schedule = [
     {
-      date: new Date('2024-05-29'),
+      date: new Date('2024-05-30'),
       scheduleName: [
         'HTML',
         'Java応用'
       ]
     },
     {
-      date: new Date('2024-06-01'),
+      date: new Date('2024-05-31'),
       scheduleName: [
         'JavaScript',
         'Java応用'
