@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           links = {{
           Report: "/dailyReport",
           result: "/test",
-          thoughts: "/thoughts"
+          thoughts: "/"
         }} />
         {children}
       </body>
