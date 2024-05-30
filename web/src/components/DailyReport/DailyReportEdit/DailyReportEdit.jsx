@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DailyReportForm } from "../DailyReportComponent/DailyReportForm/DailyReportForm";
 import { DailyReportList } from "../DailyReportComponent/DailyReportList/DailyReportList";
-import { DailyReportDeleteComfirm } from "../DailyReportComponent/DailyReportDeleteComfirm";
+import { DailyReportDeleteConfirm } from "../DailyReportComponent/DailyReportDeleteConfirm";
 import "./Modal.css";
 /**
  * @param {object} props 
@@ -40,7 +40,7 @@ export function DailyReportEdit(props) {
       {modalOpen && (
         <div className="modal-overlay">
           <div className ="modal">
-            <DailyReportDeleteComfirm 
+            <DailyReportDeleteConfirm 
             className = "modal-content"
             title = {title}
             onDelete={props.onDeleteConfirm}
