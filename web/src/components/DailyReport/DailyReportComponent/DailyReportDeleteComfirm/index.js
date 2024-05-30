@@ -1,1 +1,1 @@
-export * from "./DailyReportDeleteComfirm";
+export * from "./DailyReportDeleteConfirm";
