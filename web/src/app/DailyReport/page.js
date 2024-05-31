@@ -4,19 +4,12 @@ import { DailyReportForm } from "@/components/DailyReport/DailyReportComponent/D
 // import { DRForm } from "./form"
 
 export default async function DailyReport() {
-  const response = await fetch("http://localhost:8080/dailyReports");
+  const response = await fetch("http://localhost:8080/dailyReports?sort=id,desc", {
+    cache: "no-cache",
+  });
   const result = await response.json();
   const reportDataList = result["_embedded"]["dailyReports"].map(dr => ({title:dr.title,text:dr.content}))
   console.log(reportDataList);
-  // const submitAction = async () => {
-  //   const response = await fetch("http://localhost:8080/dailyReports/save",{
-  //     method : "POST",
-  //   })
-  // }
-  // const editAction = () => console.log('edit');
-  // const deleteAction = () => console.log('delete');
-  // const deleteConfirmAction = () => console.log('delete confirm');
-  // const deleteCancelAction = () => console.log('delete cancel');
 
   return (
     <div>
