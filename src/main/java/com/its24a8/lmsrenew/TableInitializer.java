@@ -8,12 +8,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.its24a8.lmsrenew.data.AmpmType;
 import com.its24a8.lmsrenew.data.AttendanceRepository;
 import com.its24a8.lmsrenew.data.Company;
 import com.its24a8.lmsrenew.data.CompanyRepository;
+import com.its24a8.lmsrenew.data.ConferenceLinkType;
 import com.its24a8.lmsrenew.data.DailyReport;
 import com.its24a8.lmsrenew.data.DailyReportRepository;
 import com.its24a8.lmsrenew.data.FeedBackRepository;
+import com.its24a8.lmsrenew.data.Lesson;
 import com.its24a8.lmsrenew.data.LessonRepository;
 import com.its24a8.lmsrenew.data.StudentClass;
 import com.its24a8.lmsrenew.data.StudentClassRepository;
@@ -87,10 +90,26 @@ public class TableInitializer {
 				new User("中村真理子","password!",Type.STUDENT,classes.get(1)),
 				new User("木村千鶴","password!",Type.STUDENT,classes.get(1)),
 				new User("佐々木亜美","password!",Type.STUDENT,classes.get(1)),
-				new User("中田義彦","password!",Type.INSTRUCTOR,classes.get(2))
+				new User("中田義彦","password!",Type.INSTRUCTOR,classes.get(2)),
+				new User("小山はる","password!",Type.INSTRUCTOR,classes.get(2))
 				);
 		userrep.saveAll(list);
 		return userrep.findAll();
+	}
+	
+	public List<Lesson> lessonInit(){
+		List<Lesson> list = new ArrayList<>();
+		long aclass = 0;
+		long insta = 10;
+		long instb = 11;
+		long test = 0;
+		for(int i=0;i<31;i++) {
+			LocalDateTime day = LocalDateTime.of(2024,5,i+1,0,0);
+			list.add(new Lesson(aclass,day,insta,AmpmType.AM,ConferenceLinkType.CompanyA,"React",test));
+			list.add(new Lesson(aclass,day,instb,AmpmType.PM,ConferenceLinkType.CompanyA,"Java",test));
+		}
+		lessonrep.saveAll(list);
+		return lessonrep.findAll();
 	}
 	
 	public List<DailyReport> dailyReportInit(List<User> users){
