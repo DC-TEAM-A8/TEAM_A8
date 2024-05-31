@@ -1,5 +1,6 @@
 package com.its24a8.lmsrenew;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,16 +98,12 @@ public class TableInitializer {
 		return userrep.findAll();
 	}
 	
-	public List<Lesson> lessonInit(){
+	public List<Lesson> lessonInit(List<User> users, List<StudentClass> classes, List<TestPreference> testps){
 		List<Lesson> list = new ArrayList<>();
-		long aclass = 0;
-		long insta = 10;
-		long instb = 11;
-		long test = 0;
 		for(int i=0;i<31;i++) {
-			LocalDateTime day = LocalDateTime.of(2024,5,i+1,0,0);
-			list.add(new Lesson(aclass,day,insta,AmpmType.AM,ConferenceLinkType.CompanyA,"React",test));
-			list.add(new Lesson(aclass,day,instb,AmpmType.PM,ConferenceLinkType.CompanyA,"Java",test));
+			LocalDate day = LocalDate.of(2024,5,i+1);
+			list.add(new Lesson(classes.get(0),day,users.get(10),AmpmType.AM,ConferenceLinkType.CompanyA,"HTML/CSS",testps.get(20)));
+			list.add(new Lesson(classes.get(0),day,users.get(11),AmpmType.PM,ConferenceLinkType.CompanyA,"Java",testps.get(6)));
 		}
 		lessonrep.saveAll(list);
 		return lessonrep.findAll();

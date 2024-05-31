@@ -1,6 +1,6 @@
 package com.its24a8.lmsrenew.data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -8,6 +8,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,26 +21,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Lesson {
-	public Lesson(long class_id, LocalDateTime date, long user_id, AmpmType ampm_type,
-			ConferenceLinkType conference_link_type, String section_title, long test_id) {
-		this.class_id = class_id;
+	public Lesson(StudentClass studentClass, LocalDate date, User user, AmpmType ampm_type,
+			ConferenceLinkType conference_link_type, String section_title, TestPreference testPreference) {
+		this.studentClass = studentClass;
 		this.date = date;
-		this.user_id = user_id;
+		this.user = user;
 		this.ampm_type = ampm_type;
 		this.conference_link_type = conference_link_type;
 		this.section_title = section_title;
-		this.test_id = test_id;
+		this.testPreference = testPreference;
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	private long class_id;
+    @ManyToOne
+    @JoinColumn(name = "class_id")
+	private StudentClass studentClass;
 
-	private LocalDateTime date;
+	private LocalDate date;
 
-	private long user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+	private User user;
 
 	@Enumerated(EnumType.STRING)
 	private AmpmType ampm_type;
@@ -48,5 +54,7 @@ public class Lesson {
 
 	private String section_title;
 
-	private long test_id;
+    @ManyToOne
+    @JoinColumn(name = "testPreference_id")
+	private TestPreference testPreference;
 }

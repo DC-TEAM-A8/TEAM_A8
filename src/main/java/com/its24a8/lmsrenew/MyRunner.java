@@ -32,7 +32,7 @@ public class MyRunner implements CommandLineRunner{
 		List<DailyReport> listdaily = init.dailyReportInit(listUser);
 		List<TestProblem> listTestProblem = init.testproInit();
 		List<TestPreference> listTestPre = init.testpreInit();
-		List<Lesson> listLesson = init.lessonInit();
+		List<Lesson> listLesson = init.lessonInit(listUser,listStudentClass,listTestPre);
 		
 		System.out.println("コマンドラインランナー終");
 	}
