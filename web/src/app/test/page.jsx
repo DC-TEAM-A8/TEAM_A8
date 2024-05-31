@@ -3,7 +3,9 @@
 import { TestSubjectSelect } from "../../components/TestSubjectSelect/TestSubjectSelect"
 
 export default async function Test() {
-    const response = await fetch("http://localhost:8080/testPreferences")
+    const response = await fetch("http://localhost:8080/testPreferences", {
+        cache: "no-cache",
+    })
     const result = await response.json();
     const subjects = Array.from(
         new Map(
