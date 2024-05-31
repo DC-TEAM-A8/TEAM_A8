@@ -6,4 +6,4 @@
 2. spring bootアプリケーション起動
 
 3. ```corepack pnpm install```
-4. reactアプリケーション起動
+4. reactアプリケーション起動 (```corepack pnpm dev```)
