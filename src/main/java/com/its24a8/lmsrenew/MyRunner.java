@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 
 import com.its24a8.lmsrenew.data.Company;
 import com.its24a8.lmsrenew.data.DailyReport;
+import com.its24a8.lmsrenew.data.Lesson;
 import com.its24a8.lmsrenew.data.StudentClass;
 import com.its24a8.lmsrenew.data.TestPreference;
+import com.its24a8.lmsrenew.data.TestPreferenceRepository;
 import com.its24a8.lmsrenew.data.TestProblem;
 import com.its24a8.lmsrenew.data.User;
 
@@ -17,6 +19,9 @@ import com.its24a8.lmsrenew.data.User;
 public class MyRunner implements CommandLineRunner{
 	@Autowired
 	TableInitializer init;
+	
+	@Autowired
+	TestPreferenceRepository tpr;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -27,6 +32,7 @@ public class MyRunner implements CommandLineRunner{
 		List<DailyReport> listdaily = init.dailyReportInit(listUser);
 		List<TestProblem> listTestProblem = init.testproInit();
 		List<TestPreference> listTestPre = init.testpreInit();
+		List<Lesson> listLesson = init.lessonInit();
 		
 		System.out.println("コマンドラインランナー終");
 	}
