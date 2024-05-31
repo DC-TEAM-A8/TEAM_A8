@@ -3,7 +3,7 @@
 ### 起動方法
 
 1. application.properties記入
-2. spring bootアプリケーション起動
-
-3. ```corepack pnpm install```
-4. reactアプリケーション起動 (```corepack pnpm dev```)
+2. spring boot（gradle）アプリケーションビルド
+3. spring bootアプリケーション起動
+4. ```corepack pnpm install```
+5. reactアプリケーション起動 (```corepack pnpm dev```)
