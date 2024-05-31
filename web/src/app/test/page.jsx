@@ -3,14 +3,14 @@
 import { TestSubjectSelect } from "../../components/TestSubjectSelect/TestSubjectSelect"
 
 export default async function Test() {
-    const response = await fetch("http://localhost:8080/testPreferences")
+    const response = await fetch("http://localhost:8080/miniTest")
     const result = await response.json();
     const subjects = Array.from(
         new Map(
-            result._embedded.testPreferences.map(tp => [
-                tp.section,
+            result.map(tp => [
+                tp.name,
                 {
-                    name: tp.section,
+                    name: tp.name,
                     sessions: tp.volume
                 }
             ])

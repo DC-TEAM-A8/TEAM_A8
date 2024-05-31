@@ -58,7 +58,8 @@ public class TableInitializer {
 		List<Company> list = Arrays.asList(
 				new Company(start,end,"ドリームキャリア",LINK),
 				new Company(start,end,"会社B",LINK),
-				new Company(start,end,"会社C",LINK)
+				new Company(start,end,"会社C",LINK),
+				new Company(start,end,"講師会社",LINK)
 				);
 		companyrep.saveAll(list);
 		return companyrep.findAll();
@@ -67,7 +68,8 @@ public class TableInitializer {
 	public List<StudentClass> classInit(List<Company> companies){
 		List<StudentClass> list = Arrays.asList(
 				new StudentClass("ドリームキャリアA",LINK,companies.get(0)),
-				new StudentClass("ドリームキャリアB",LINK,companies.get(0))
+				new StudentClass("ドリームキャリアB",LINK,companies.get(0)),
+				new StudentClass("講師クラス",LINK,companies.get(0))
 				);
 		stuclassrep.saveAll(list);
 		return stuclassrep.findAll();
@@ -84,7 +86,8 @@ public class TableInitializer {
 				new User("伊藤美和子","password!",Type.STUDENT,classes.get(1)),
 				new User("中村真理子","password!",Type.STUDENT,classes.get(1)),
 				new User("木村千鶴","password!",Type.STUDENT,classes.get(1)),
-				new User("佐々木亜美","password!",Type.STUDENT,classes.get(1))
+				new User("佐々木亜美","password!",Type.STUDENT,classes.get(1)),
+				new User("中田義彦","password!",Type.INSTRUCTOR,classes.get(2))
 				);
 		userrep.saveAll(list);
 		return userrep.findAll();
