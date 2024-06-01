@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,7 +31,6 @@ public class Attendance {
     ) {
         this.user = user;
         this.attendance_date = attendance_date;
-        this.index = index;
         this.type = type;
         this.memo = memo;
     }
@@ -48,12 +46,11 @@ public class Attendance {
     @CreatedDate
     LocalDateTime attendance_date = LocalDateTime.now();
 
-    @Column(name = "attendance_index")
-    long index;
-
     @Enumerated(EnumType.STRING)
     AttendanceType type;
 
     @NonNull
     String memo = "";
+    
+    
 }

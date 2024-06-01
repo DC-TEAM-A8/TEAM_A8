@@ -19,6 +19,8 @@ import com.its24a8.lmsrenew.data.DailyReportRepository;
 import com.its24a8.lmsrenew.data.FeedBackRepository;
 import com.its24a8.lmsrenew.data.Lesson;
 import com.its24a8.lmsrenew.data.LessonRepository;
+import com.its24a8.lmsrenew.data.Section;
+import com.its24a8.lmsrenew.data.SectionRepository;
 import com.its24a8.lmsrenew.data.StudentClass;
 import com.its24a8.lmsrenew.data.StudentClassRepository;
 import com.its24a8.lmsrenew.data.TestPreference;
@@ -53,12 +55,16 @@ public class TableInitializer {
 	TestResultRepository testresrep;
 	@Autowired
 	UserRepository userrep;
+	@Autowired
+	SectionRepository secrep;
 	
 	static private String LINK = "https://us06web.zoom.us/j/81025097888";
+	static private String[] SECTIONS = {"Java","JavaScript","HTML/CSS","データベース","ITリテラシー","ビジネスマナー","React"};
+	static private boolean[] ANSWER = {true,false,false,false};
 	
 	public List<Company> companyInit(){
-		LocalDateTime start = LocalDateTime.of(2024, 4, 1, 0, 0);
-		LocalDateTime end = LocalDateTime.of(2024, 5,31,0,0);
+		LocalDate start = LocalDate.of(2024, 4, 1);
+		LocalDate end = LocalDate.of(2024, 5,31);
 		List<Company> list = Arrays.asList(
 				new Company(start,end,"ドリームキャリア",LINK),
 				new Company(start,end,"会社B",LINK),
@@ -98,12 +104,12 @@ public class TableInitializer {
 		return userrep.findAll();
 	}
 	
-	public List<Lesson> lessonInit(List<User> users, List<StudentClass> classes, List<TestPreference> testps){
+	public List<Lesson> lessonInit(List<User> users, List<StudentClass> classes, List<Section> sections){
 		List<Lesson> list = new ArrayList<>();
 		for(int i=0;i<31;i++) {
 			LocalDate day = LocalDate.of(2024,5,i+1);
-			list.add(new Lesson(classes.get(0),day,users.get(10),AmpmType.AM,ConferenceLinkType.CompanyA,"HTML/CSS",testps.get(20)));
-			list.add(new Lesson(classes.get(0),day,users.get(11),AmpmType.PM,ConferenceLinkType.CompanyA,"Java",testps.get(6)));
+			list.add(new Lesson(classes.get(0),day,users.get(10),AmpmType.AM,ConferenceLinkType.Company,sections.get(6)));
+			list.add(new Lesson(classes.get(0),day,users.get(11),AmpmType.PM,ConferenceLinkType.Company,sections.get(0)));
 		}
 		lessonrep.saveAll(list);
 		return lessonrep.findAll();
@@ -125,14 +131,12 @@ public class TableInitializer {
 		return dailyrep.findAll();
 	}
 	
-	public List<TestProblem> testproInit(){
-		boolean[] ans = {true,false,false,false};
-		String[] sec = {"Java","JavaScript","HTML/CSS","データベース","ITリテラシー","ビジネスマナー"};
+	public List<TestProblem> testproInit(List<TestPreference> testpres,List<Section> sections){
 		
 		List<TestProblem> list = new ArrayList<>();
-		for(String s:sec) {
+		for(int j=0;j<sections.size();j++) {
 			for(int i=0;i<30;i++) {
-				TestProblem test = new TestProblem(s,(i/6 +1),(s+(i+1)+"問目です").toString(),"選択肢1","選択肢2","選択肢3","選択肢4",ans);
+				TestProblem test = new TestProblem((i/6 +1),(sections.get(j).getName()+(i+1)+"問目です").toString(),"選択肢1","選択肢2","選択肢3","選択肢4",ANSWER,testpres.get(i/6+(j*5)),sections.get(j));
 				list.add(test);
 			}
 		}
@@ -141,18 +145,29 @@ public class TableInitializer {
 		return testprorep.findAll();
 	}
 	
-	public List<TestPreference> testpreInit(){
-		String[] sec = {"Java","JavaScript","HTML/CSS","データベース","ITリテラシー","ビジネスマナー"};
-		
+	public List<TestPreference> testpreInit(List<Section> sections){
 		List<TestPreference> list = new ArrayList<>();
-		for(String s:sec) {
+		for(Section s:sections) {
 			for(int i=0;i<6;i++) {
 				list.add(new TestPreference(s,i+1,5,70,TestType.MINI));
 			}
+		}
+		for(Section s:sections) {
 			list.add(new TestPreference(s,1,20,70,TestType.FULL));
 		}
 		
 		testprerep.saveAll(list);
 		return testprerep.findAll();
 	}
+	
+	public List<Section> sectionInit(){
+		List<Section> list = new ArrayList<>();
+		for(String s:SECTIONS) {
+			list.add(new Section(s));
+		}
+		
+		secrep.saveAll(list);
+		return secrep.findAll();
+	}
+
 }

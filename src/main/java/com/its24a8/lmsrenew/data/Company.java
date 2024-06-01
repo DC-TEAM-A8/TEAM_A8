@@ -1,6 +1,6 @@
 package com.its24a8.lmsrenew.data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "company")
 public class Company {
-    public Company(LocalDateTime start_at, LocalDateTime end_at, String company_name, String conference_link) {
+    public Company(LocalDate start_at, LocalDate end_at, String company_name, String conference_link) {
         super();
         this.start_at = start_at;
         this.end_at = end_at;
@@ -27,9 +27,9 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private LocalDateTime start_at;
+    private LocalDate start_at;
     
-    private LocalDateTime end_at;
+    private LocalDate end_at;
     
     private String company_name;
     
