@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "testresult")
+@Table(name = "test_result")
 public class TestResult {
     public TestResult(LocalDateTime solved_at, int elapsed, int score, User user, TestPreference testPreference) {
         super();

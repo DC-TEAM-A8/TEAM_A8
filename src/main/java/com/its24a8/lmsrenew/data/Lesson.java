@@ -22,14 +22,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Lesson {
 	public Lesson(StudentClass studentClass, LocalDate date, User user, AmpmType ampm_type,
-			ConferenceLinkType conference_link_type, String section_title, TestPreference testPreference) {
+			ConferenceLinkType conference_link_type, Section section) {
 		this.studentClass = studentClass;
 		this.date = date;
 		this.user = user;
 		this.ampm_type = ampm_type;
 		this.conference_link_type = conference_link_type;
-		this.section_title = section_title;
-		this.testPreference = testPreference;
+		this.section = section;
 	}
 
 	@Id
@@ -52,9 +51,7 @@ public class Lesson {
 	@Enumerated(EnumType.STRING)
 	private ConferenceLinkType conference_link_type;
 
-	private String section_title;
-
-    @ManyToOne
-    @JoinColumn(name = "testPreference_id")
-	private TestPreference testPreference;
+	@ManyToOne
+	@JoinColumn(name = "section_id")
+	private Section section;
 }

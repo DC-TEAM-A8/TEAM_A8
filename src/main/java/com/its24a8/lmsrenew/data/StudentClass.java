@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "studentclass")
+@Table(name = "student_class")
 public class StudentClass {
     public StudentClass(String class_name, String conference_link, Company company) {
         super();
